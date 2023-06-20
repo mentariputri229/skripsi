@@ -39,13 +39,13 @@ class LoginController extends Controller
 
             $req->session()->regenerate();
             switch (Auth::user()->role) {
+                case 0:
+                    return redirect('/pemohon/index');
+                    break;
                 case 1:
                     return redirect('/admin/index');
                     break;
-                // case 2:
-                //     return redirect('');
-                //     break;
-                // case 7:
+                // case 3:
                 //     if(Auth::user()->status == 0){
                 //         Auth::logout();
                 //         return back()->withErrors('Maaf akun anda belum diverifikasi oleh admin');

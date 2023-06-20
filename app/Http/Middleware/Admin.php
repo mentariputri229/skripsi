@@ -21,7 +21,7 @@ class Admin
         }
         switch (Auth::user()->role) {
             case 0:
-                return redirect()->route('auth.login');
+                return redirect()->route('user.dashboard');
                 break;
             case 1:
                 return $next($request);
