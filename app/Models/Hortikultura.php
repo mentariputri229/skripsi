@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Usaha extends Model
+class Hortikultura extends Model
 {
     protected $guarded = [
         '',
@@ -17,18 +18,13 @@ class Usaha extends Model
         return $this->belongsTo(user::class);
     }
 
-    public function benihunggul(): HasMany
+    public function usaha(): BelongsTo
     {
-        return $this->hasMany(benihunggul::class);
+        return $this->belongsTo(usaha::class);
     }
 
-    public function varietaslokal(): HasMany
+    public function produsen(): BelongsTo
     {
-        return $this->hasMany(varietaslokal::class);
-    }
-
-    public function hortikultura(): HasMany
-    {
-        return $this->hasMany(hortikultura::class);
+        return $this->belongsTo(produsen::class);
     }
 }

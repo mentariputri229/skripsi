@@ -7,6 +7,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsahaController;
 use App\Http\Controllers\ProdusenController;
 use App\Http\Controllers\PemohonController;
+use App\Http\Controllers\UsahaUserController;
+use App\Http\Controllers\ProdusenUserController;
+use App\Http\Controllers\BenihUnggulController;
+use App\Http\Controllers\BenihUnggulUserController;
+use App\Http\Controllers\VarietasLokalController;
+use App\Http\Controllers\VarietasLokalUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +46,7 @@ Route::middleware(['admin'])->group(function () {
         Route::resource('user', UserController::class);
         Route::resource('usaha', UsahaController::class);
         Route::resource('produsen', ProdusenController::class);
+        Route::resource('benihunggul', BenihUnggulController::class);
     });
 
 });
@@ -49,6 +56,9 @@ Route::middleware(['user'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('/index', [PemohonController::class, 'index'])->name('dashboard');
 
-
+        Route::resource('usaha', UsahaUserController::class);
+        Route::resource('produsen', ProdusenUserController::class);
+        Route::resource('benihunggul', BenihUnggulUserController::class);
+        Route::resource('varietaslokal', VarietasLokalUserController::class);
     });
 });

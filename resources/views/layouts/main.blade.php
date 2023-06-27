@@ -38,7 +38,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -212,6 +212,7 @@
       </div>
 
       <!-- Sidebar Menu -->
+      @if (Auth::user()->role == 1)
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -247,18 +248,97 @@
           </li>
           <li class="nav-item">
             <a href="{{ route('auth.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
-              <i class="nav-icon fas fa-th" ></i>
+              <i class="nav-icon fas fa-sign-out-alt" ></i>
               <p>Logout</p>
             </a>
             <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="d-none">
                 @csrf
               </form>
           </li>
-
-
-
         </ul>
       </nav>
+      @else
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Master Data
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.user.index')}}" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>User</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.usaha.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Usaha</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.produsen.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Produsen</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Permohonan
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('user.benihunggul.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Produsen Benih Unggul</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{route('user.benihunggul.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengedar Benih Unggul</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{route('user.varietaslokal.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Produsen Varietas Lokal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.produsen.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Produsen Hortikultura</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('auth.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">
+              <i class="nav-icon fas fa-sign-out-alt" ></i>
+              <p>Logout</p>
+            </a>
+            <form id="logout-form" action="{{ route('auth.logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+          </li>
+        </ul>
+      </nav>
+      @endif
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

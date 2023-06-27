@@ -15,7 +15,7 @@ Tambah Produsen
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('admin.beranda')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item active">Tambah Produsen</li>
             </ol>
           </div><!-- /.col -->
@@ -36,20 +36,10 @@ Tambah Produsen
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.produsen.store') }}">
+                        <form method="post" enctype="multipart/form-data" action="{{ route('user.produsen.store') }}">
                             <div class="modal-body">
                                 @csrf
-                                <div class="form-group ">
-                                    <label>Pilih User</label>
-                                    <select name="user_id" class="form-control select2 select2-hidden-accessible"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option selected="selected" data-select2-id="3">--Pilih User--
-                                        </option>
-                                        @foreach ($data as $d)
-                                        <option value="{{ $d->id }}" data-select2-id="34">{{ $d->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                <input type="hidden" name="user_id" value="{{Auth::user()->id}}" >
                                 <div class="form-group">
                                     <label for="produsen">Produsen</label>
                                     <input type="text" class="form-control" id="produsen" name="produsen"
@@ -88,7 +78,7 @@ Tambah Produsen
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
-                                    <a type="button" href="{{ route('admin.user.index') }}"
+                                    <a type="button" href="{{ route('user.produsen.index') }}"
                                         class="btn btn btn-danger">Kembali</a>
                                 </td>
                                 <button type="submit" class="btn btn-primary">Tambah Data</button>

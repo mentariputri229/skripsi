@@ -40,10 +40,10 @@ class LoginController extends Controller
             $req->session()->regenerate();
             switch (Auth::user()->role) {
                 case 0:
-                    return redirect('/pemohon/index');
+                    return redirect()->route('user.dashboard');
                     break;
                 case 1:
-                    return redirect('/admin/index');
+                    return redirect()->route('admin.beranda');
                     break;
                 // case 3:
                 //     if(Auth::user()->status == 0){

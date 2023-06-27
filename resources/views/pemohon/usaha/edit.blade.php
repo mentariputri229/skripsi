@@ -15,7 +15,7 @@ Edit Usaha
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('admin.beranda')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item active">Edit Usaha</li>
             </ol>
           </div><!-- /.col -->
@@ -36,21 +36,10 @@ Edit Usaha
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.usaha.update', $usaha->id) }}">
+                        <form method="post" enctype="multipart/form-data" action="{{ route('user.usaha.update', $usaha->id) }}">
                             <div class="modal-body">
                                 @csrf
                                 @method('put')
-                                <div class="form-group ">
-                                    <label>Pilih User</label>
-                                    <select name="user_id" class="form-control select2 select2-hidden-accessible"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option selected="selected" data-select2-id="3">--Pilih User--
-                                        </option>
-                                        @foreach ($data as $d)
-                                        <option value="{{ $d->id }}" {{ $usaha->user_id == $d->id ? 'selected' : '' }} data-select2-id="34">{{ $d->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="namausaha">Nama Usaha</label>
                                     <input type="text" class="form-control" id="namausaha" name="namausaha" value="{{ $usaha->namausaha }}"

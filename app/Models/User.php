@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -22,14 +22,29 @@ class User extends Authenticatable
         '',
     ];
 
-    public function usaha(): HasOne
+    public function usaha(): HasMany
     {
-        return $this->HasOne(usaha::class);
+        return $this->HasMany(usaha::class);
     }
 
-    public function produsen(): HasOne
+    public function produsen(): HasMany
     {
-        return $this->HasOne(produsen::class);
+        return $this->HasMany(produsen::class);
+    }
+
+    public function benihunggul(): HasMany
+    {
+        return $this->hasMany(benihunggul::class);
+    }
+
+    public function varietaslokal(): HasMany
+    {
+        return $this->hasMany(varietaslokal::class);
+    }
+
+    public function hortikultura(): HasMany
+    {
+        return $this->hasMany(hortikultura::class);
     }
 
     /**

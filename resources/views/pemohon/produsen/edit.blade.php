@@ -36,21 +36,10 @@ Edit Produsen
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('admin.produsen.update', $produsen->id) }}">
+                        <form method="post" enctype="multipart/form-data" action="{{ route('user.produsen.update', $produsen->id) }}">
                             <div class="modal-body">
                                 @csrf
                                 @method('put')
-                                <div class="form-group ">
-                                    <label>Pilih User</label>
-                                    <select name="user_id" class="form-control select2 select2-hidden-accessible"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option selected="selected" data-select2-id="3">--Pilih User--
-                                        </option>
-                                        @foreach ($data as $d)
-                                        <option value="{{ $d->id }}" {{ $produsen->user_id == $d->id ? 'selected' : '' }} data-select2-id="34">{{ $d->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
                                 <div class="form-group">
                                     <label for="produsen">Produsen</label>
                                     <input type="text" class="form-control" id="produsen" name="produsen" value="{{ $produsen->produsen }}"
@@ -89,7 +78,7 @@ Edit Produsen
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
-                                    <a type="button" href="{{ route('admin.produsen.index') }}"
+                                    <a type="button" href="{{ route('user.produsen.index') }}"
                                         class="btn btn btn-danger">Kembali</a>
                                 </td>
                                 <button type="submit" class="btn btn-primary">Edit Data</button>

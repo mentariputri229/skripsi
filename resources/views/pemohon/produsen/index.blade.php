@@ -14,7 +14,7 @@ Produsen
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('admin.beranda')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item active">Produsen </li>
             </ol>
           </div><!-- /.col -->
@@ -33,7 +33,7 @@ Produsen
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a href="{{ route('admin.produsen.create') }}" class="btn  btn-primary">
+                            <a href="{{ route('user.produsen.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Tambah Data Produsen</span>
                             </a>
                             {{-- <a type="button" href="{{ route('admin.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
@@ -66,12 +66,12 @@ Produsen
                                     <td><a class="btn btn-info" href="{{ asset('img/fotoprodusen/'.$d->photo   ) }}" target="_blank">Lihat Foto</a></td>
                                     <td>{{ $d->alamat }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('admin.produsen.edit', $d->id) }}">
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.produsen.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="{{ route('admin.produsen.destroy',$d->id) }}">
+                                            data-link="{{ route('user.produsen.destroy',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 

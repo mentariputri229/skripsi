@@ -32,7 +32,7 @@ class RedirectIfAuthenticated
                     return redirect('/admin/index');
                     break;
                 case 0:
-                    return redirect('/pemohon/index');
+                    return redirect()->route('user.dashboard');
                     break;
             }
         }
