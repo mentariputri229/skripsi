@@ -12,7 +12,7 @@ class VarietasLokalController extends Controller
      */
     public function index()
     {
-        //
+        return view('pemohon.varietaslokal.index');
     }
 
     /**
