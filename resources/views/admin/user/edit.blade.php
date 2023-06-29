@@ -62,7 +62,6 @@
                                         <option selected="selected" data-select2-id="3">--Pilih Role--
                                         </option>
                                         <option value="0" {{ $user->role == 0 ? 'selected' : '' }} data-select2-id="34">Pemohon</option>
-                                        <option value="1" {{ $user->role == 1 ? 'selected' : '' }} data-select2-id="35">Admin</option>
                                         <option value="2" {{ $user->role == 2 ? 'selected' : '' }} data-select2-id="35">Kepala</option>
                                     </select>
                                 </div>

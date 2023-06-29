@@ -9,16 +9,16 @@ use App\Models\Produsen;
 use App\Models\Usaha;
 use Illuminate\Http\Request;
 
-class HortikulturaController extends Controller
+class HortikulturaUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Hortikultura::all();
+        $data = Hortikultura::where('user_id', '=', Auth::id())->get();
 
-        return view('admin.hortikultura.index', compact('data'));
+        return view('pemohon.hortikultura.index', compact('data'));
     }
 
     /**
@@ -26,7 +26,10 @@ class HortikulturaController extends Controller
      */
     public function create()
     {
-        //
+        $data = Produsen::where('user_id', '=', Auth::id())->get();
+        $usaha = Usaha::where('user_id', '=', Auth::id())->get();
+
+        return view('pemohon.hortikultura.create', compact('data','usaha'));
     }
 
     /**
@@ -34,13 +37,30 @@ class HortikulturaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $hortikultura = hortikultura::create($request->all());
+
+        // comment this code if foto not used
+        $hortikultura_id = $hortikultura->id;
+        $setuuid = hortikultura::findOrFail($hortikultura_id);
+        if($request->persyaratan != null)
+        {
+            $img = $request->file('persyaratan');
+            $FotoExt  = $img->getClientOriginalExtension();
+            $FotoName = $hortikultura_id;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $img->move('img/rekomendasihortikultura', $foto);
+            $setuuid->persyaratan       = $foto;
+        }else{
+            $setuuid->persyaratan       = $setuuid->persyaratan;
+        }
+        $setuuid->update();
+        return redirect()->route('user.hortikultura.index')->withSuccess('Data Berhasil Disimpan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Hortikultura $hortikultura)
+    public function show(string $id)
     {
         //
     }
@@ -50,12 +70,10 @@ class HortikulturaController extends Controller
      */
     public function edit(Hortikultura $hortikultura)
     {
-        $hortikultura_id = $hortikultura->user_id;
+        $data = Produsen::where('user_id', '=', Auth::id())->get();
+        $usaha = Usaha::where('user_id', '=', Auth::id())->get();
 
-        $data = Produsen::where('user_id', '=', $hortikultura_id)->get();
-        $usaha = Usaha::where('user_id', '=', $hortikultura_id)->get();
-
-        return view('admin.hortikultura.edit', compact('hortikultura','data','usaha'));
+        return view('pemohon.hortikultura.edit', compact('hortikultura','data','usaha'));
     }
 
     /**
@@ -79,7 +97,7 @@ class HortikulturaController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
-        return redirect()->route('admin.hortikultura.index')->withSuccess('Data Berhasil Diubah');
+        return redirect()->route('user.hortikultura.index')->withSuccess('Data Berhasil Diubah');
     }
 
     /**

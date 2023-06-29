@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-Rekomendasi Benih Unggul
+Rekomendasi Varietas Lokal
 @endsection
 
 @section('content')
@@ -10,12 +10,12 @@ Rekomendasi Benih Unggul
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Rekomendasi Benih Unggul</h1>
+            <h1 class="m-0">Rekomendasi Varietas Lokal</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Rekomendasi Benih Unggul </li>
+              <li class="breadcrumb-item active">Rekomendasi Varietas Lokal </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,7 +33,7 @@ Rekomendasi Benih Unggul
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a href="{{ route('user.benihunggul.create') }}" class="btn  btn-primary">
+                            <a href="{{ route('user.varietaslokal.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Buat Permohonan</span>
                             </a>
                             {{-- <a type="button" href="{{ route('user.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
@@ -75,15 +75,15 @@ Rekomendasi Benih Unggul
                                     <td>{{ $d->produsen->alamat }}</td>
                                     <td>{{ $d->jenis_benih }}</td>
                                     <td>{{ $d->kelas_benih }}</td>
-                                    <td><a class="btn btn-info" href="{{ asset('img/rekomendasibenihunggul/'.$d->persyaratan   ) }}" target="_blank">Lihat Persyaratan</a></td>
+                                    <td><a class="btn btn-info" href="{{ asset('img/rekomendasivarietaslokal/'.$d->persyaratan   ) }}" target="_blank">Lihat Persyaratan</a></td>
                                     <td>{{ $d->status }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.benihunggul.edit', $d->id) }}">
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.varietaslokal.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
-                                            data-link="{{ route('user.benihunggul.destroy',$d->id) }}">
+                                            data-link="{{ route('user.varietaslokal.destroy',$d->id) }}">
                                             <i class="fas fa-times"></i>
                                         </button>
 

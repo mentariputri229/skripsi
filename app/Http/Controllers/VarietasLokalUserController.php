@@ -103,10 +103,10 @@ class VarietasLokalUserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(VarietasLokal $varietaslokal)
     {
         try {
-            $benihunggul->delete();
+            $varietaslokal->delete();
             return back()->withSuccess('Data berhasil dihapus');
         } catch (Exception $exception) {
             return notify()->warning($exception->getMessage());

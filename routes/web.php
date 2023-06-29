@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\mainController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserEditController;
 use App\Http\Controllers\UsahaController;
 use App\Http\Controllers\ProdusenController;
 use App\Http\Controllers\PemohonController;
@@ -13,6 +14,8 @@ use App\Http\Controllers\BenihUnggulController;
 use App\Http\Controllers\BenihUnggulUserController;
 use App\Http\Controllers\VarietasLokalController;
 use App\Http\Controllers\VarietasLokalUserController;
+use App\Http\Controllers\HortikulturaController;
+use App\Http\Controllers\HortikulturaUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +50,8 @@ Route::middleware(['admin'])->group(function () {
         Route::resource('usaha', UsahaController::class);
         Route::resource('produsen', ProdusenController::class);
         Route::resource('benihunggul', BenihUnggulController::class);
+        Route::resource('varietaslokal', VarietasLokalController::class);
+        Route::resource('hortikultura', HortikulturaController::class);
     });
 
 });
@@ -56,9 +61,11 @@ Route::middleware(['user'])->group(function () {
     Route::prefix('user')->name('user.')->group(function () {
         Route::get('/index', [PemohonController::class, 'index'])->name('dashboard');
 
+        Route::resource('user', UserEditController::class);
         Route::resource('usaha', UsahaUserController::class);
         Route::resource('produsen', ProdusenUserController::class);
         Route::resource('benihunggul', BenihUnggulUserController::class);
         Route::resource('varietaslokal', VarietasLokalUserController::class);
+        Route::resource('hortikultura', HortikulturaUserController::class);
     });
 });

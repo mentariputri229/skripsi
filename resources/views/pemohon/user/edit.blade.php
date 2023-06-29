@@ -15,7 +15,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{{route('admin.beranda')}}">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
               <li class="breadcrumb-item active">Edit User</li>
             </ol>
           </div><!-- /.col -->
@@ -36,7 +36,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" action="{{ route('admin.user.update', $user->id) }}">
+                        <form method="post" action="{{ route('user.user.update', $user->id) }}">
                             <div class="modal-body">
                                 @csrf
                                 @method('put')
@@ -47,24 +47,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}"
+                                    <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}" disabled
                                         placeholder="Masukan Username" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}"
                                         placeholder="Masukan Email" required>
-                                </div>
-                                <div class="form-group ">
-                                    <label>Role</label>
-                                    <select name="role" class="form-control select2 select2-hidden-accessible"
-                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                        <option selected="selected" data-select2-id="3">--Pilih Role--
-                                        </option>
-                                        <option value="0" {{ $user->role == 0 ? 'selected' : '' }} data-select2-id="34">Pemohon</option>
-                                        <option value="1" {{ $user->role == 1 ? 'selected' : '' }} data-select2-id="35">Admin</option>
-                                        <option value="2" {{ $user->role == 2 ? 'selected' : '' }} data-select2-id="35">Kepala</option>
-                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
@@ -79,7 +68,7 @@
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
-                                    <a type="button" href="{{ route('admin.user.index') }}"
+                                    <a type="button" href="{{ route('user.user.index') }}"
                                         class="btn btn btn-danger">Kembali</a>
                                 </td>
                                 <button type="submit" class="btn btn-primary">Edit Data</button>

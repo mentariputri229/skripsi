@@ -61,7 +61,6 @@ Tambah User
                                         <option selected="selected" data-select2-id="3">--Pilih Role--
                                         </option>
                                         <option value="0" data-select2-id="34">Pemohon</option>
-                                        <option value="1" data-select2-id="35">Admin</option>
                                         <option value="2" data-select2-id="35">Kepala</option>
                                     </select>
                                 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-Permohonan Rekomendasi Varietas Lokal
+Permohonan Rekomendasi Hortikultura
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Permohonan Rekomendasi Varietas Lokal
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Permohonan Rekomendasi Varietas Lokal</h1>
+            <h1 class="m-0">Permohonan Rekomendasi Hortikultura</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">Permohonan Rekomendasi Varietas Lokal</li>
+              <li class="breadcrumb-item active">Permohonan Rekomendasi Hortikultura</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -36,7 +36,7 @@ Permohonan Rekomendasi Varietas Lokal
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form method="post" enctype="multipart/form-data" action="{{ route('user.varietaslokal.store') }}">
+                        <form method="post" enctype="multipart/form-data" action="{{ route('user.hortikultura.store') }}">
                             <div class="modal-body">
                                 @csrf
                                 <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
@@ -88,7 +88,7 @@ Permohonan Rekomendasi Varietas Lokal
                             </div>
                             <div class="modal-footer justify-content-between">
                                 <td>
-                                    <a type="button" href="{{ route('user.varietaslokal.index') }}"
+                                    <a type="button" href="{{ route('user.hortikultura.index') }}"
                                         class="btn btn btn-danger">Kembali</a>
                                 </td>
                                 <button type="submit" class="btn btn-primary">Tambah Data</button>

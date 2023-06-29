@@ -16,7 +16,9 @@ class BenihUnggulController extends Controller
      */
     public function index()
     {
-        //
+        $data = BenihUnggul::all();
+
+        return view('admin.benihunggul.index', compact('data'));
     }
 
     /**
@@ -38,7 +40,7 @@ class BenihUnggulController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(BenihUnggul $benihUnggul)
+    public function show(BenihUnggul $benihunggul)
     {
         //
     }
@@ -46,24 +48,50 @@ class BenihUnggulController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(BenihUnggul $benihUnggul)
+    public function edit(BenihUnggul $benihunggul)
     {
-        //
+        $benihunggul_id = $benihunggul->user_id;
+
+        $data = Produsen::where('user_id', '=', $benihunggul_id)->get();
+        $usaha = Usaha::where('user_id', '=', $benihunggul_id)->get();
+
+        return view('admin.benihunggul.edit', compact('benihunggul','data','usaha'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, BenihUnggul $benihUnggul)
+    public function update(Request $request, BenihUnggul $benihunggul)
     {
-        //
+        $benihunggul->update($request->all());
+
+        $benihunggul_id = $benihunggul->id;
+        $setuuid = benihunggul::findOrFail($benihunggul_id);
+        if($request->persyaratan != null)
+        {
+            $img = $request->file('persyaratan');
+            $FotoExt  = $img->getClientOriginalExtension();
+            $FotoName = $benihunggul_id;
+            $foto   = $FotoName.'.'.$FotoExt;
+            $img->move('img/rekomendasibenihunggul', $foto);
+            $setuuid->persyaratan       = $foto;
+        }else{
+            $setuuid->persyaratan       = $setuuid->persyaratan;
+        }
+        $setuuid->update();
+        return redirect()->route('admin.benihunggul.index')->withSuccess('Data Berhasil Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(BenihUnggul $benihUnggul)
+    public function destroy(BenihUnggul $benihunggul)
     {
-        //
+        try {
+            $benihunggul->delete();
+            return back()->withSuccess('Data berhasil dihapus');
+        } catch (Exception $exception) {
+            return notify()->warning($exception->getMessage());
+        }
     }
 }

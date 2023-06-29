@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-User
+Rekomendasi Benih Unggul
 @endsection
 
 @section('content')
@@ -10,12 +10,12 @@ User
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">User</h1>
+            <h1 class="m-0">Rekomendasi Benih Unggul</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">Home</a></li>
-              <li class="breadcrumb-item active">User </li>
+              <li class="breadcrumb-item active">Rekomendasi Benih Unggul </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -33,10 +33,10 @@ User
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            {{-- <a href="{{ route('user.user.create') }}" class="btn  btn-primary">
-                                <span><i class="feather icon-plus"></i> Tambah Data User</span>
-                            </a> --}}
-                            {{-- <a type="button" href="{{ route('admin.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
+                            <a href="{{ route('user.benihunggul.create') }}" class="btn  btn-primary">
+                                <span><i class="feather icon-plus"></i> Buat Permohonan</span>
+                            </a>
+                            {{-- <a type="button" href="{{ route('user.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a> --}}
                         </td>
                     </div>
@@ -46,11 +46,18 @@ User
                             <thead class="text-center">
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>Alamat</th>
-                                    <th>Nomor HP</th>
+                                    <th>Nama Usaha</th>
+                                    <th>Pemimpin Usaha</th>
+                                    <th>Kontak Pemimpin Usaha</th>
+                                    <th>Alamat Usaha</th>
+                                    <th>Nama Produsen</th>
+                                    <th>Pemimpin Produsen</th>
+                                    <th>Kontak Pemimpin Produsen</th>
+                                    <th>Alamat Produsen</th>
+                                    <th>Jenis Benih</th>
+                                    <th>Kelas benih</th>
+                                    <th>Persyaratan</th>
+                                    <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -58,16 +65,27 @@ User
                                 @foreach ($data as $d )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $d->name }}</td>
-                                    <td>{{ $d->username }}</td>
-                                    <td>{{ $d->email }}</td>
-                                    <td>{{ $d->alamat }}</td>
-                                    <td>{{ $d->nohp }}</td>
+                                    <td>{{ $d->usaha->namausaha }}</td>
+                                    <td>{{ $d->usaha->namapimpinan }}</td>
+                                    <td>{{ $d->usaha->nohp }}</td>
+                                    <td>{{ $d->usaha->alamat }}</td>
+                                    <td>{{ $d->produsen->produsen }}</td>
+                                    <td>{{ $d->produsen->namapimpinan }}</td>
+                                    <td>{{ $d->produsen->nohp }}</td>
+                                    <td>{{ $d->produsen->alamat }}</td>
+                                    <td>{{ $d->jenis_benih }}</td>
+                                    <td>{{ $d->kelas_benih }}</td>
+                                    <td><a class="btn btn-info" href="{{ asset('img/rekomendasibenihunggul/'.$d->persyaratan   ) }}" target="_blank">Lihat Persyaratan</a></td>
+                                    <td>{{ $d->status }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.user.edit', $d->id) }}">
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.benihunggul.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
-
+                                        <button data-target="#modaldelete" data-toggle="modal" type="button"
+                                            class="delete btn btn-sm bg-danger"
+                                            data-link="{{ route('user.benihunggul.destroy',$d->id) }}">
+                                            <i class="fas fa-times"></i>
+                                        </button>
 
                                     </td>
                                 </tr>
