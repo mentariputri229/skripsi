@@ -65,16 +65,25 @@ Permohonan Rekomendasi Hortikultura
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="jenis_benih">Jenis Benih</label>
-                                            <input type="text" class="form-control" id="jenis_benih" name="jenis_benih" value="{{$hortikultura->jenis_benih}}"
-                                                placeholder="Masukan Jenis Benih" required>
+                                        <div class="form-group ">
+                                            <label>Jenis Benih</label>
+                                            <select name="jenis_benih" class="form-control select2 select2-hidden-accessible"
+                                                data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" data-select2-id="3">--Pilih--
+                                                </option>
+                                                <option value="Sayuran" {{ $hortikultura->jenis_benih == "Sayuran" ? 'selected' : '' }} data-select2-id="34">Sayuran</option>
+                                                <option value="Buah-buahan" {{ $hortikultura->jenis_benih == "Buah-buahan" ? 'selected' : '' }} data-select2-id="35">Buah-buahan</option>
+                                                <option value="Tanaman Obat" {{ $hortikultura->jenis_benih == "Tanaman Obat" ? 'selected' : '' }} data-select2-id="35">Tanaman Obat</option>
+                                                <option value="Tanaman Hias" {{ $hortikultura->jenis_benih == "Tanaman Hias" ? 'selected' : '' }} data-select2-id="35">Tanaman Hias</option>
+                                            </select>
                                         </div>
+                                        @if($hortikultura->status == "Survei Lapangan")
                                         <div class="form-group">
-                                            <label for="kelas_benih">Kelas Benih</label>
-                                            <input type="text" class="form-control" id="kelas_benih" name="kelas_benih" value="{{$hortikultura->kelas_benih}}"
-                                                placeholder="Masukan Kelas Benih" required>
+                                            <label for="nomor_surat">Nomor Surat</label>
+                                            <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$hortikultura->nomor_surat}}"
+                                                placeholder="Masukan Nomor Surat">
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -83,11 +92,11 @@ Permohonan Rekomendasi Hortikultura
                                                 data-select2-id="1" tabindex="-1" aria-hidden="true">
                                                 <option selected="selected" data-select2-id="3">--Pilih Status--
                                                 </option>
-                                                <option value="Menunggu Konfirmasi" {{ $varietaslokal->status == "Menunggu Konfirmasi" ? 'selected' : '' }} data-select2-id="34">Menunggu Konfirmasi</option>
-                                                <option value="Dikonfirmasi" {{ $varietaslokal->status == "Dikonfirmasi" ? 'selected' : '' }} data-select2-id="34">Dikonfirmasi</option>
-                                                <option value="Survei Lapangan" {{ $varietaslokal->status == "Survei Lapangan" ? 'selected' : '' }} data-select2-id="35">Survei Lapangan</option>
-                                                <option value="Selesai" {{ $varietaslokal->status == "Selesai" ? 'selected' : '' }} data-select2-id="35">Selesai</option>
-                                                <option value="Ditolak" {{ $varietaslokal->status == "Ditolak" ? 'selected' : '' }} data-select2-id="35">Ditolak</option>
+                                                <option value="Menunggu Konfirmasi" {{ $hortikultura->status == "Menunggu Konfirmasi" ? 'selected' : '' }} data-select2-id="34">Menunggu Konfirmasi</option>
+                                                <option value="Dikonfirmasi" {{ $hortikultura->status == "Dikonfirmasi" ? 'selected' : '' }} data-select2-id="34">Dikonfirmasi</option>
+                                                <option value="Survei Lapangan" {{ $hortikultura->status == "Survei Lapangan" ? 'selected' : '' }} data-select2-id="35">Survei Lapangan</option>
+                                                <option value="Selesai" {{ $hortikultura->status == "Selesai" ? 'selected' : '' }} data-select2-id="35">Selesai</option>
+                                                <option value="Ditolak" {{ $hortikultura->status == "Ditolak" ? 'selected' : '' }} data-select2-id="35">Ditolak</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

@@ -35,21 +35,6 @@ class UsahaUserController extends Controller
     {
         $usaha = usaha::create($request->all());
 
-        // comment this code if foto not used
-        $usaha_id = $usaha->id;
-        $setuuid = Usaha::findOrFail($usaha_id);
-        if($request->photo != null)
-        {
-            $img = $request->file('photo');
-            $FotoExt  = $img->getClientOriginalExtension();
-            $FotoName = $usaha_id;
-            $foto   = $FotoName.'.'.$FotoExt;
-            $img->move('img/fotousaha', $foto);
-            $setuuid->photo       = $foto;
-        }else{
-            $setuuid->photo       = $setuuid->photo;
-        }
-        $setuuid->update();
         return redirect()->route('user.usaha.index')->withSuccess('Data Berhasil Disimpan');
     }
 
@@ -76,21 +61,6 @@ class UsahaUserController extends Controller
     {
         $usaha->update($request->all());
 
-        // comment this code if foto not used
-        $usaha_id = $usaha->id;
-        $setuuid = Usaha::findOrFail($usaha_id);
-        if($request->photo != null)
-        {
-            $img = $request->file('photo');
-            $FotoExt  = $img->getClientOriginalExtension();
-            $FotoName = $usaha_id;
-            $foto   = $FotoName.'.'.$FotoExt;
-            $img->move('img/fotousaha', $foto);
-            $setuuid->photo       = $foto;
-        }else{
-            $setuuid->photo       = $setuuid->photo;
-        }
-        $setuuid->update();
         return redirect()->route('user.usaha.index')->withSuccess('Data Berhasil Diubah');
     }
 

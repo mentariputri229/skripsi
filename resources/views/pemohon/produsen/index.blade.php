@@ -50,6 +50,7 @@ Produsen
                                     <th>Nama Pimpinan</th>
                                     <th>Jenis Kelamin Pimpinan</th>
                                     <th>Nomor HP</th>
+                                    <th>NPWP</th>
                                     <th>Foto Pimpinan</th>
                                     <th>Alamat</th>
                                     <th>Aksi</th>
@@ -63,6 +64,7 @@ Produsen
                                     <td>{{ $d->namapimpinan }}</td>
                                     <td>{{ $d->jk }}</td>
                                     <td>{{ $d->nohp }}</td>
+                                    <td>{{ $d->npwp }}</td>
                                     <td><a class="btn btn-info" href="{{ asset('img/fotoprodusen/'.$d->photo   ) }}" target="_blank">Lihat Foto</a></td>
                                     <td>{{ $d->alamat }}</td>
                                     <td>

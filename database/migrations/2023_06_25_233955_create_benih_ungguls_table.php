@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('produsen_id')->references('id')->on('produsens')->onDelete('restrict');
             $table->string('nomor_surat', 30)->nullable();
             $table->string('jenis_benih', 30);
-            $table->string('kelas_benih', 30);
+            $table->string('kelas_benih', 30)->nullable();
             $table->string('persyaratan');
             $table->date('tanggal')->nullable();
             $table->string('status')->default('Menunggu Konfirmasi');

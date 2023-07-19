@@ -65,15 +65,21 @@ Permohonan Rekomendasi Varietas Lokal
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="jenis_benih">Jenis Benih</label>
-                                            <input type="text" class="form-control" id="jenis_benih" name="jenis_benih" value="{{$varietaslokal->jenis_benih}}"
-                                                placeholder="Masukan Jenis Benih" required>
+                                        <div class="form-group ">
+                                            <label>Jenis Benih</label>
+                                            <select name="jenis_benih" class="form-control select2 select2-hidden-accessible"
+                                                data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" data-select2-id="3">--Pilih--
+                                                </option>
+                                                <option value="Padi Lokal" {{ $varietaslokal->jenis_benih == "Padi Lokal" ? 'selected' : '' }} data-select2-id="34">Padi Lokal</option>
+                                                <option value="Jagung Lokal" {{ $varietaslokal->jenis_benih == "Jagung Lokal" ? 'selected' : '' }} data-select2-id="35">Jagung Lokal</option>
+                                                <option value="Porang Lokal" {{ $varietaslokal->jenis_benih == "Porang Lokal" ? 'selected' : '' }} data-select2-id="35">Porang Lokal</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="kelas_benih">Kelas Benih</label>
-                                            <input type="text" class="form-control" id="kelas_benih" name="kelas_benih" value="{{$varietaslokal->kelas_benih}}"
-                                                placeholder="Masukan Kelas Benih" required>
+                                            <label for="benih_usaha">Benih yang Diusahakan</label>
+                                            <input type="text" class="form-control" id="benih_usaha" name="benih_usaha"
+                                                placeholder="Masukan Benih yang Diusahakan" value="{{$varietaslokal->benih_usaha}}" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

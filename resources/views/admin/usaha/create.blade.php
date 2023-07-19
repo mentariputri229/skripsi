@@ -55,35 +55,43 @@ Tambah Usaha
                                     <input type="text" class="form-control" id="namausaha" name="namausaha"
                                         placeholder="Masukan Nama Usaha" required>
                                 </div>
-                                <div class="form-group">
-                                    <label for="namapimpinan">Nama Pimpinan</label>
-                                    <input type="text" class="form-control" id="namapimpinan" name="namapimpinan"
-                                        placeholder="Masukan Nama Pimpinan" required>
-                                </div>
                                 <div class="form-group ">
-                                    <label>Jenis Kelamin Pimpinan</label>
-                                    <select name="jk" class="form-control select2 select2-hidden-accessible"
+                                    <label>Bentuk Usaha</label>
+                                    <select name="bentukusaha" class="form-control select2 select2-hidden-accessible"
                                         data-select2-id="1" tabindex="-1" aria-hidden="true">
                                         <option selected="selected" data-select2-id="3">--Pilih--
                                         </option>
-                                        <option value="Laki-laki" data-select2-id="34">Laki-laki</option>
-                                        <option value="Perempuan" data-select2-id="35">Perempuan</option>
+                                        <option value="PT" data-select2-id="34">PT</option>
+                                        <option value="CV" data-select2-id="35">CV</option>
+                                        <option value="Kelompok" data-select2-id="35">Kelompok</option>
+                                        <option value="Perseorangan" data-select2-id="35">Perseorangan</option>
+                                        <option value="Dinas" data-select2-id="35">Dinas</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="nohp">Nomor HP</label>
-                                    <input type="text" class="form-control" id="nohp" name="nohp"
-                                        placeholder="Masukan Nomor HP" required>
+                                <div class="form-group ">
+                                    <label>Komoditas</label>
+                                    <select name="komoditas" class="form-control select2 select2-hidden-accessible"
+                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected" data-select2-id="3">--Pilih--
+                                        </option>
+                                        <option value="Pangan" data-select2-id="34">Pangan</option>
+                                        <option value="Hortikultura" data-select2-id="35">Hortikultura</option>
+                                    </select>
+                                </div>
+                                <div class="form-group ">
+                                    <label>Jenis Usaha</label>
+                                    <select name="jenisusaha" class="form-control select2 select2-hidden-accessible"
+                                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                        <option selected="selected" data-select2-id="3">--Pilih--
+                                        </option>
+                                        <option value="Produsen" data-select2-id="34">Produsen</option>
+                                        <option value="Pengedar" data-select2-id="35">Pengedar</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <input type="text" class="form-control" id="alamat" name="alamat"
                                         placeholder="Masukan Alamat" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="photo">photo Pimpinan</label>
-                                    <input type="file" class="form-control" id="photo" name="photo"
-                                        placeholder="Masukan Foto Pimpinan" required>
                                 </div>
                             </div>
                             <div class="modal-footer justify-content-between">

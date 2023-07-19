@@ -65,22 +65,27 @@ Permohonan Rekomendasi Benih Unggul
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="jenis_benih">Jenis Benih</label>
-                                            <input type="text" class="form-control" id="jenis_benih" name="jenis_benih" value="{{$benihunggul->jenis_benih}}"
-                                                placeholder="Masukan Jenis Benih" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="kelas_benih">Kelas Benih</label>
-                                            <input type="text" class="form-control" id="kelas_benih" name="kelas_benih" value="{{$benihunggul->kelas_benih}}"
-                                                placeholder="Masukan Kelas Benih" required>
+                                        <div class="form-group ">
+                                            <label>Jenis Benih</label>
+                                            <select name="jenis_benih" class="form-control select2 select2-hidden-accessible"
+                                                data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                <option selected="selected" data-select2-id="3">--Pilih--
+                                                </option>
+                                                <option value="Padi Inbrida" {{ $benihunggul->jenis_benih == "Padi Inbrida" ? 'selected' : '' }} data-select2-id="34">Padi Inbrida</option>
+                                                <option value="Padi Hibrida" {{ $benihunggul->jenis_benih == "Padi Hibrida" ? 'selected' : '' }} data-select2-id="34">Padi Hibrida</option>
+                                                <option value="Jagung Komposit" {{ $benihunggul->jenis_benih == "Jagung Komposit" ? 'selected' : '' }} data-select2-id="35">Jagung Komposit</option>
+                                                <option value="Jagung Hibrida" {{ $benihunggul->jenis_benih == "Jagung Hibrida" ? 'selected' : '' }} data-select2-id="35">Jagung Hibrida</option>
+                                                <option value="Kedelai" {{ $benihunggul->jenis_benih == "Kedelai" ? 'selected' : '' }} data-select2-id="35">Kedelai</option>
+                                                <option value="Kacang Tanah" {{ $benihunggul->jenis_benih == "Kacang Tanah" ? 'selected' : '' }} data-select2-id="35">Kacang Tanah</option>
+                                                <option value="Porang Unggul" {{ $benihunggul->jenis_benih == "Porang Unggul" ? 'selected' : '' }} data-select2-id="35">Porang Unggul</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="persyaratan">File Persyaratan Dalam Bentuk PDF</label>
                                             <input type="file" class="form-control" id="persyaratan" name="persyaratan"
-                                                placeholder="Masukan Foto Pimpinan">
+                                                placeholder="Masukan Persyaratan">
                                         </div>
                                     </div>
                                 </div>

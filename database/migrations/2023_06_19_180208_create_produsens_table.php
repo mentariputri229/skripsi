@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('namapimpinan', 100);
             $table->string('jk', 20);
             $table->string('nohp', 15);
+            $table->string('npwp', 20);
             $table->string('photo', 100);
             $table->text('alamat');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

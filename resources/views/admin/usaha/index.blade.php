@@ -36,8 +36,8 @@ Usaha
                             <a href="{{ route('admin.usaha.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Tambah Data Usaha</span>
                             </a>
-                            {{-- <a type="button" href="{{ route('admin.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
-                            </a> --}}
+                            <a type="button" href="{{ route('report.usahaAll') }}" class="btn  btn-primary float-right" target="_blank">Cetak
+                            </a>
                         </td>
                     </div>
                     <!-- /.card-header -->
@@ -46,11 +46,11 @@ Usaha
                             <thead class="text-center">
                                 <tr>
                                     <th>No</th>
+                                    <th>Pengguna</th>
                                     <th>Nama Usaha</th>
-                                    <th>Nama Pimpinan</th>
-                                    <th>Jenis Kelamin Pimpinan</th>
-                                    <th>Nomor HP</th>
-                                    <th>Foto Pimpinan</th>
+                                    <th>Jenis Usaha</th>
+                                    <th>Bentuk Usaha</th>
+                                    <th>Komoditas</th>
                                     <th>Alamat</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -59,11 +59,11 @@ Usaha
                                 @foreach ($data as $d )
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $d->user->name }}</td>
                                     <td>{{ $d->namausaha }}</td>
-                                    <td>{{ $d->namapimpinan }}</td>
-                                    <td>{{ $d->jk }}</td>
-                                    <td>{{ $d->nohp }}</td>
-                                    <td><a class="btn btn-info" href="{{ asset('img/fotousaha/'.$d->photo   ) }}" target="_blank">Lihat Foto</a></td>
+                                    <td>{{ $d->jenisusaha }}</td>
+                                    <td>{{ $d->bentukusaha }}</td>
+                                    <td>{{ $d->komoditas }}</td>
                                     <td>{{ $d->alamat }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('admin.usaha.edit', $d->id) }}">

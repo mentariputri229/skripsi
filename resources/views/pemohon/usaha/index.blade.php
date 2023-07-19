@@ -47,10 +47,9 @@ Usaha
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Usaha</th>
-                                    <th>Nama Pimpinan</th>
-                                    <th>Jenis Kelamin Pimpinan</th>
-                                    <th>Nomor HP</th>
-                                    <th>Foto Pimpinan</th>
+                                    <th>Jenis Usaha</th>
+                                    <th>Bentuk Usaha</th>
+                                    <th>Komoditas</th>
                                     <th>Alamat</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -60,10 +59,9 @@ Usaha
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->namausaha }}</td>
-                                    <td>{{ $d->namapimpinan }}</td>
-                                    <td>{{ $d->jk }}</td>
-                                    <td>{{ $d->nohp }}</td>
-                                    <td><a class="btn btn-info" href="{{ asset('img/fotousaha/'.$d->photo   ) }}" target="_blank">Lihat Foto</a></td>
+                                    <td>{{ $d->jenisusaha }}</td>
+                                    <td>{{ $d->bentukusaha }}</td>
+                                    <td>{{ $d->komoditas }}</td>
                                     <td>{{ $d->alamat }}</td>
                                     <td>
                                         <a class="btn btn-sm btn-info text-white" href="{{ route('user.usaha.edit', $d->id) }}">

@@ -33,11 +33,11 @@ Rekomendasi Benih Unggul
                 <div class="card">
                     <div class="card-header">
                         <td>
-                            <a href="{{ route('user.benihunggul.create') }}" class="btn  btn-primary">
+                            {{-- <a href="{{ route('user.benihunggul.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Buat Permohonan</span>
-                            </a>
-                            {{-- <a type="button" href="{{ route('user.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
                             </a> --}}
+                            <a type="button" href="{{ route('report.rekomendasiunggulfilter') }}" class="btn  btn-primary float-right" target="_blank">Cetak
+                            </a>
                         </td>
                     </div>
                     <!-- /.card-header -->
@@ -47,8 +47,6 @@ Rekomendasi Benih Unggul
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Usaha</th>
-                                    <th>Pemimpin Usaha</th>
-                                    <th>Kontak Pemimpin Usaha</th>
                                     <th>Alamat Usaha</th>
                                     <th>Nama Produsen</th>
                                     <th>Pemimpin Produsen</th>
@@ -66,19 +64,26 @@ Rekomendasi Benih Unggul
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->usaha->namausaha }}</td>
-                                    <td>{{ $d->usaha->namapimpinan }}</td>
-                                    <td>{{ $d->usaha->nohp }}</td>
                                     <td>{{ $d->usaha->alamat }}</td>
                                     <td>{{ $d->produsen->produsen }}</td>
                                     <td>{{ $d->produsen->namapimpinan }}</td>
                                     <td>{{ $d->produsen->nohp }}</td>
                                     <td>{{ $d->produsen->alamat }}</td>
                                     <td>{{ $d->jenis_benih }}</td>
-                                    <td>{{ $d->kelas_benih }}</td>
+                                    <td>@if($d->kelas_benih == null)
+                                        belum ditentukan
+                                        @else
+                                        {{ $d->kelas_benih }}
+                                    @endif</td>
                                     <td><a class="btn btn-info" href="{{ asset('img/rekomendasibenihunggul/'.$d->persyaratan   ) }}" target="_blank">Lihat Persyaratan</a></td>
                                     <td>{{ $d->status }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.benihunggul.edit', $d->id) }}">
+                                        @if ($d->status == 'Selesai')
+                                        <a class="btn btn-sm btn-success text-white" href="{{ route('report.sertifikatunggul', $d->id) }}">
+                                            <i class="fas fa-print"></i>
+                                          </a>
+                                        @endif
+                                        <a class="btn btn-sm btn-info text-white" href="{{ route('admin.benihunggul.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"

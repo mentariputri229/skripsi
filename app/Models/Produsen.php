@@ -32,4 +32,19 @@ class Produsen extends Model
     {
         return $this->hasMany(hortikultura::class);
     }
+
+    public function pengedarhortikultura(): HasMany
+    {
+        return $this->hasMany(pengedarhortikultura::class);
+    }
+
+    public function pengedarlokal(): HasMany
+    {
+        return $this->hasMany(pengedarlokal::class);
+    }
+
+    public function pengedarunggul(): HasMany
+    {
+        return $this->hasMany(pengedarunggul::class);
+    }
 }

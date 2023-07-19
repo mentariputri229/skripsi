@@ -36,8 +36,8 @@ User
                             <a href="{{ route('admin.user.create') }}" class="btn  btn-primary">
                                 <span><i class="feather icon-plus"></i> Tambah Data User</span>
                             </a>
-                            {{-- <a type="button" href="{{ route('admin.report.userall') }}" class="btn  btn-primary float-right" target="_blank">Cetak
-                            </a> --}}
+                            <a type="button" href="{{ route('report.userAll') }}" class="btn  btn-primary float-right" target="_blank">Cetak
+                            </a>
                         </td>
                     </div>
                     <!-- /.card-header -->

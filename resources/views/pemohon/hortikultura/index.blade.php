@@ -47,15 +47,12 @@ Rekomendasi Hortikultura
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Usaha</th>
-                                    <th>Pemimpin Usaha</th>
-                                    <th>Kontak Pemimpin Usaha</th>
                                     <th>Alamat Usaha</th>
                                     <th>Nama Produsen</th>
                                     <th>Pemimpin Produsen</th>
                                     <th>Kontak Pemimpin Produsen</th>
                                     <th>Alamat Produsen</th>
                                     <th>Jenis Benih</th>
-                                    <th>Kelas benih</th>
                                     <th>Persyaratan</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -66,25 +63,29 @@ Rekomendasi Hortikultura
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $d->usaha->namausaha }}</td>
-                                    <td>{{ $d->usaha->namapimpinan }}</td>
-                                    <td>{{ $d->usaha->nohp }}</td>
                                     <td>{{ $d->usaha->alamat }}</td>
                                     <td>{{ $d->produsen->produsen }}</td>
                                     <td>{{ $d->produsen->namapimpinan }}</td>
                                     <td>{{ $d->produsen->nohp }}</td>
                                     <td>{{ $d->produsen->alamat }}</td>
                                     <td>{{ $d->jenis_benih }}</td>
-                                    <td>{{ $d->kelas_benih }}</td>
                                     <td><a class="btn btn-info" href="{{ asset('img/rekomendasihortikultura/'.$d->persyaratan   ) }}" target="_blank">Lihat Persyaratan</a></td>
                                     <td>{{ $d->status }}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-info text-white" href="{{ route('user.hortikultura.edit', $d->id) }}">
+                                        @if ($d->status == 'Selesai')
+                                        <a class="btn btn-sm btn-success text-white" href="{{ route('report.sertifikathortikultura', $d->id) }}">
+                                            <i class="fas fa-print"></i>
+                                          </a>
+                                          @else
+                                          <a class="btn btn-sm btn-info text-white" href="{{ route('user.hortikultura.edit', $d->id) }}">
                                             <i class="fas fa-edit"></i>
                                           </a>
                                         <button data-target="#modaldelete" data-toggle="modal" type="button"
                                             class="delete btn btn-sm bg-danger"
                                             data-link="{{ route('user.hortikultura.destroy',$d->id) }}">
                                             <i class="fas fa-times"></i>
+                                        @endif
+
                                         </button>
 
                                     </td>

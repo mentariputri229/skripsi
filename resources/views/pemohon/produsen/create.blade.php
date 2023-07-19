@@ -66,6 +66,11 @@ Tambah Produsen
                                         placeholder="Masukan Nomor HP" required>
                                 </div>
                                 <div class="form-group">
+                                    <label for="npwp">NPWP</label>
+                                    <input type="text" class="form-control" id="npwp" name="npwp"
+                                        placeholder="Masukan NPWP" required>
+                                </div>
+                                <div class="form-group">
                                     <label for="alamat">Alamat</label>
                                     <input type="text" class="form-control" id="alamat" name="alamat"
                                         placeholder="Masukan Alamat" required>

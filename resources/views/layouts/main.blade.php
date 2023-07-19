@@ -250,7 +250,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Permohonan
+                Produsen
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -271,6 +271,35 @@
                 <a href="{{route('admin.hortikultura.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Produsen Hortikultura</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Pengedar
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin.pengedarunggul.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pengedar Benih Unggul</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.pengedarlokal.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pengedar Varietas Lokal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('admin.pengedarhortikultura.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pengedar Hortikultura</p>
                 </a>
               </li>
             </ul>
@@ -324,7 +353,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-list"></i>
               <p>
-                Permohonan
+                Produsen
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -351,6 +380,41 @@
                 <a href="{{route('user.hortikultura.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Produsen Hortikultura</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-list"></i>
+              <p>
+                Pengedar
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('user.pengedarunggul.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pengedar Benih Unggul</p>
+                </a>
+              </li>
+              {{-- <li class="nav-item">
+                <a href="{{route('user.benihunggul.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pengedar Benih Unggul</p>
+                </a>
+              </li> --}}
+              <li class="nav-item">
+                <a href="{{route('user.pengedarlokal.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pengedar Varietas Lokal</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('user.pengedarhortikultura.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>pengedar Hortikultura</p>
                 </a>
               </li>
             </ul>
