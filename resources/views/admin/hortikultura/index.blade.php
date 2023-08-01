@@ -73,7 +73,7 @@ Rekomendasi Hortikultura
                                     <td>{{ $d->status }}</td>
                                     <td>
                                         @if ($d->status == 'Selesai')
-                                        <a class="btn btn-sm btn-success text-white" href="{{ route('report.sertifikathortikultura', $d->id) }}">
+                                        <a class="btn btn-sm btn-success text-white" target="_blank" href="{{ route('report.sertifikathortikultura', $d->id) }}">
                                             <i class="fas fa-print"></i>
                                           </a>
                                         @endif
