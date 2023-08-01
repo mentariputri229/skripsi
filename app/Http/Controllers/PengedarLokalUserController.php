@@ -36,7 +36,10 @@ class PengedarLokalUserController extends Controller
      */
     public function store(Request $request)
     {
-        $pengedarlokal = pengedarlokal::create($request->all());
+        $i = array($request->sarana);
+        $pengedarlokal = pengedarlokal::create($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         // comment this code if foto not used
         $pengedarlokal_id = $pengedarlokal->id;
@@ -80,7 +83,10 @@ class PengedarLokalUserController extends Controller
      */
     public function update(Request $request, PengedarLokal $pengedarlokal)
     {
-        $pengedarlokal->update($request->all());
+        $i = array($request->sarana);
+        $pengedarlokal->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $pengedarlokal_id = $pengedarlokal->id;
         $setuuid = pengedarlokal::findOrFail($pengedarlokal_id);

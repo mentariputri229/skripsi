@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailupdate;
+use Illuminate\Support\Facades\Mail;
 use Auth;
 use App\Models\Produsen;
 use App\Models\Usaha;
@@ -62,7 +64,10 @@ class PengedarHortikulturaController extends Controller
      */
     public function update(Request $request, PengedarHortikultura $pengedarhortikultura)
     {
-        $pengedarhortikultura->update($request->all());
+        $i = array($request->sarana);
+        $pengedarhortikultura->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $pengedarhortikultura_id = $pengedarhortikultura->id;
         $setuuid = pengedarhortikultura::findOrFail($pengedarhortikultura_id);
@@ -78,6 +83,13 @@ class PengedarHortikulturaController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
+
+        if($pengedarhortikultura->wasChanged('status'))
+        {
+            $data = $pengedarhortikultura;
+
+            Mail::to($pengedarhortikultura->user->email)->send(new Mailupdate($data));
+        }
         return redirect()->route('admin.pengedarhortikultura.index')->withSuccess('Data Berhasil Diubah');
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailupdate;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Auth;
 use App\Models\VarietasLokal;
@@ -63,7 +65,10 @@ class VarietasLokalController extends Controller
      */
     public function update(Request $request, VarietasLokal $varietaslokal)
     {
-        $varietaslokal->update($request->all());
+        $i = array($request->sarana);
+        $varietaslokal->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $varietaslokal_id = $varietaslokal->id;
         $setuuid = varietaslokal::findOrFail($varietaslokal_id);
@@ -79,6 +84,13 @@ class VarietasLokalController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
+
+        if($varietaslokal->wasChanged('status'))
+        {
+            $data = $varietaslokal;
+
+            Mail::to($varietaslokal->user->email)->send(new Mailupdate($data));
+        }
         return redirect()->route('admin.varietaslokal.index')->withSuccess('Data Berhasil Diubah');
     }
 

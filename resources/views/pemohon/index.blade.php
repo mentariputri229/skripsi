@@ -29,65 +29,69 @@ Dashboard
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
 
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <div class="col-12">
+                    <div class="info-box">
+                        <div class="info-box-content">
+                            <h2 class="info-box-text">INFORMASI CARA PENDAFTARAN PRODUSEN & PENGEDAR</h2>
+                            <h4>Pada menu Master Data terdapat menu Usaha & produsen, isi minimal masing-masing 1 data usaha & produsen yang akan anda daftarkan di Rekomendasi Produsen/pengedar benih, atau klik link dibawah ini
+                            </h4>
+                            <br>
+                            <div class="row">
+                                <a href="{{route('user.produsen.create')}}">Tambah data Produsen</a>, <a style="margin-left: 1ch;" href="{{route('user.usaha.create')}}">Tambah data Usaha</a>
+                            </div>
+                        </div>
 
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
+                <div class="col-12">
+                    <div class="info-box">
+                        <div class="info-box-content">
+                            <h2 class="info-box-text">INFORMASI PERSYARATAN</h2>
+                            <h5>Untuk persyaratan sebagai produsen benih file dijadikan 1 pdf yang nanti di upload di persyaratan disaat mengajukan permohonan, berikut adalah persyaratan untuk pengajuan :</h5>
+                            <h5>1. Scan Kartu Tanda Penduduk</h5>
+                            <h5>2. Pas Foto</h5>
+                            <h5>3. Scan Akte Pendirian Usaha dan Perubahanya (untuk badan usaha, badan hukum dan instansi pemerintah)</h5>
+                            <h5>4. Scan Nomor Pokok Wajib Pajak</h5>
+                            <h5>5. Rencana Kerja Produksi Benih Tahunan</h5>
+                            <h5>6. Keterangan Penguasaan lahan</h5>
+                            <h5>7. Keterangan Penguasaan Sarana Pengolahan Benih</h5>
+                            <h5>8. Keterangan Penguasaan Sarana Penunjang</h5>
+                            <h5>9. Jumlah dan Kompetensi tenaga Kerja dibidang Perbenihan</h5>
+                            <br>
+                            <h5>Untuk persyaratan sebagai pengedar benih file dijadikan 1 pdf yang nanti di upload di persyaratan disaat mengajukan permohonan, berikut adalah persyaratan untuk pengajuan :</h5>
+                            <h5>1. Scan Kartu Tanda Penduduk</h5>
+                            <h5>2. Keterangan penguasaan Sarana Gudang/Penguasaan Benih</h5>
+                            <h5>3. Keterangan Penguasaan Sarana Pengolahan benih</h5>
+                        </div>
 
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <div class="col-12">
+                    <div class="info-box">
+                        <div class="info-box-content">
+                            <h4>Setelah selesai menambah produsen & usaha serta mempersiapkan persyaratan anda dapat melanjutkan dengan mendaftar rekomendasi sesuai dengan kebutuhan anda di menu produsen atau pengedar, klik menu di samping kiri tersebut kemudian klik tombol tambah data yang terdapat di menu yang dipilih kemudian isi semua inputan yang ada, atau klik link dibawah ini
+                            </h4>
+                            <br>
+                            <div class="row">
+                                <a href="{{route('user.varietaslokal.create')}}">Permohonan Rekomendasi Produsen Benih Varietas Lokal</a>,
+                                <a style="margin-left: 1ch;" href="{{route('user.hortikultura.create')}}">Permohonan Rekomendasi produsen Benih Hortikultura</a>,
+                                <a style="margin-left: 1ch;" href="{{route('user.benihunggul.create')}}">Permohonan Rekomendasi Produsen Benih Unggul</a>,
+                                <a style="margin-left: 1ch;" href="{{route('user.pengedarhortikultura.create')}}">Permohonan Rekomendasi Pengedar Hortikultura</a>,
+                                <a style="margin-left: 1ch;" href="{{route('user.pengedarlokal.create')}}">Permohonan Rekomendasi Pengedar Benih Varietas Lokal</a>,
+                                <a style="margin-left: 1ch;" href="{{route('user.pengedarunggul.create')}}">Permohonan Rekomendasi Pengedar Benih Unggul</a>
+                            </div>
+                        </div>
+
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
           <!-- ./col -->
         </div>
         <!-- /.row -->

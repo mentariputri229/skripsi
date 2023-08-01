@@ -100,6 +100,31 @@ Permohonan Rekomendasi Varietas Lokal
                                         <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$varietaslokal->nomor_surat}}"
                                             placeholder="Masukan Nomor Surat">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$varietaslokal->tanggal_akhir}}"
+                                            placeholder="Masukan Nomor Surat">
+                                    </div>
+                                    @elseif($varietaslokal->status == "Selesai")
+                                    <label>Kelas Benih</label>
+                                    <select name="kelas_benih" class="form-control select2 select2-hidden-accessible" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                    <option selected="selected" data-select2-id="3">--Pilih--
+                                    </option>
+                                    <option value="Benih Penjenis (BP)"  data-select2-id="34">Benih Penjenis (BP)</option>
+                                    <option value="Benih Dasar (BD)"  data-select2-id="34">Benih Dasar (BD)</option>
+                                    <option value="Benih Pokok (BP)"  data-select2-id="35">Benih Pokok (BP)</option>
+                                    <option value="Benih Sebar (BR)"  data-select2-id="35">Benih Sebar (BR)</option>
+                                </select>
+                                <div class="form-group">
+                                    <label for="nomor_surat">Nomor Surat</label>
+                                    <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$varietaslokal->nomor_surat}}"
+                                        placeholder="Masukan Nomor Surat">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                    <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$varietaslokal->tanggal_akhir}}"
+                                        placeholder="Masukan Nomor Surat">
+                                </div>
                                         @endif
                                     </div>
                                     <div class="col-md-6">
@@ -117,10 +142,36 @@ Permohonan Rekomendasi Varietas Lokal
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label for="tanggal_diterima">Tanggal Diterima</label>
+                                            <input type="date" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="{{$varietaslokal->tanggal_diterima}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="persyaratan">File Persyaratan Dalam Bentuk PDF</label>
                                             <input type="file" class="form-control" id="persyaratan" name="persyaratan"
                                                 placeholder="Masukan Foto Pimpinan">
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sarana/Prasarana</label>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Rencana Kerja Produksi Tahunan" {{ in_array('Rencana Kerja Produksi Tahunan', $varietaslokal->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Rencana Kerja Produksi Tahunan</label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Luas Tanah Diatas 5000 m" {{ in_array('Luas Tanah Diatas 5000 m', $varietaslokal->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Luas Tanah Diatas 5000 m<sup>2</sup></label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Jumlah Tenaga Kerja Lebih Dari 2 Orang" {{ in_array('Jumlah Tenaga Kerja Lebih Dari 2 Orang', $varietaslokal->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Jumlah Tenaga Kerja Lebih Dari 2 Orang</label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih" {{ in_array('Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih', $varietaslokal->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih</label>
+                                            </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

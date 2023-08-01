@@ -12,6 +12,10 @@ class PengedarLokal extends Model
         '',
     ];
 
+    protected $casts = [
+        'sarana' => 'array',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(user::class);

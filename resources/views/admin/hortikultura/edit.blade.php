@@ -83,6 +83,22 @@ Permohonan Rekomendasi Hortikultura
                                             <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$hortikultura->nomor_surat}}"
                                                 placeholder="Masukan Nomor Surat">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                            <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$hortikultura->tanggal_akhir}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
+                                        @elseif($hortikultura->status == "Selesai")
+                                        <div class="form-group">
+                                            <label for="nomor_surat">Nomor Surat</label>
+                                            <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$hortikultura->nomor_surat}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                            <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$hortikultura->tanggal_akhir}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
                                         @endif
                                     </div>
                                     <div class="col-md-6">
@@ -100,10 +116,36 @@ Permohonan Rekomendasi Hortikultura
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label for="tanggal_diterima">Tanggal Diterima</label>
+                                            <input type="date" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="{{$hortikultura->tanggal_diterima}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="persyaratan">File Persyaratan Dalam Bentuk PDF</label>
                                             <input type="file" class="form-control" id="persyaratan" name="persyaratan"
                                                 placeholder="Masukan Foto Pimpinan">
                                         </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sarana/Prasarana</label>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Rencana Kerja Produksi Tahunan" {{ in_array('Rencana Kerja Produksi Tahunan', $hortikultura->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Rencana Kerja Produksi Tahunan</label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Luas Tanah Diatas 5000 m" {{ in_array('Luas Tanah Diatas 5000 m', $hortikultura->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Luas Tanah Diatas 5000 m<sup>2</sup></label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Jumlah Tenaga Kerja Lebih Dari 2 Orang" {{ in_array('Jumlah Tenaga Kerja Lebih Dari 2 Orang', $hortikultura->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Jumlah Tenaga Kerja Lebih Dari 2 Orang</label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih" {{ in_array('Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih', $hortikultura->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih</label>
+                                            </div>
+                                            </div>
                                     </div>
                                 </div>
                             </div>

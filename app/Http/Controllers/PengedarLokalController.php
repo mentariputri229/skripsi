@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailupdate;
+use Illuminate\Support\Facades\Mail;
 use Auth;
 use App\Models\Produsen;
 use App\Models\Usaha;
@@ -62,7 +64,10 @@ class PengedarLokalController extends Controller
      */
     public function update(Request $request, PengedarLokal $pengedarlokal)
     {
-        $pengedarlokal->update($request->all());
+        $i = array($request->sarana);
+        $pengedarlokal->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $pengedarlokal_id = $pengedarlokal->id;
         $setuuid = pengedarlokal::findOrFail($pengedarlokal_id);
@@ -78,6 +83,13 @@ class PengedarLokalController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
+
+        if($pengedarlokal->wasChanged('status'))
+        {
+            $data = $pengedarlokal;
+
+            Mail::to($pengedarlokal->user->email)->send(new Mailupdate($data));
+        }
         return redirect()->route('admin.pengedarlokal.index')->withSuccess('Data Berhasil Diubah');
     }
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailupdate;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Auth;
 use App\Models\BenihUnggul;
@@ -63,7 +65,11 @@ class BenihUnggulController extends Controller
      */
     public function update(Request $request, BenihUnggul $benihunggul)
     {
-        $benihunggul->update($request->all());
+        $i = array($request->sarana);
+
+        $benihunggul->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $benihunggul_id = $benihunggul->id;
         $setuuid = benihunggul::findOrFail($benihunggul_id);
@@ -79,6 +85,15 @@ class BenihUnggulController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
+
+        if($benihunggul->wasChanged('status'))
+        {
+            $data = $benihunggul;
+
+            Mail::to($benihunggul->user->email)->send(new Mailupdate($data));
+        }
+
+
         return redirect()->route('admin.benihunggul.index')->withSuccess('Data Berhasil Diubah');
     }
 

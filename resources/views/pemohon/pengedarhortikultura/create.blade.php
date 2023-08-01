@@ -92,6 +92,19 @@ Rekomendasi Pengedar Hortikultura
                                     </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label>Sarana/Prasarana</label>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                        <input class="form-check-input" name="sarana[]" value="Jumlah Tenaga Kerja Lebih Dari 2 Orang" type="checkbox">
+                                        <label class="form-check-label">Jumlah Tenaga Kerja Lebih Dari 2 Orang</label>
+                                        </div>
+                                        <div class="form-check">
+                                        <input class="form-check-input" name="sarana[]" value="Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih" type="checkbox">
+                                        <label class="form-check-label">Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                             <div class="modal-footer justify-content-between">

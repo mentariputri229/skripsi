@@ -36,7 +36,10 @@ class PengedarUnggulUserController extends Controller
      */
     public function store(Request $request)
     {
-        $pengedarunggul = pengedarunggul::create($request->all());
+        $i = array($request->sarana);
+        $pengedarunggul = pengedarunggul::create($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         // comment this code if foto not used
         $pengedarunggul_id = $pengedarunggul->id;
@@ -80,7 +83,10 @@ class PengedarUnggulUserController extends Controller
      */
     public function update(Request $request, PengedarUnggul $pengedarunggul)
     {
-        $pengedarunggul->update($request->all());
+        $i = array($request->sarana);
+        $pengedarunggul->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $pengedarunggul_id = $pengedarunggul->id;
         $setuuid = pengedarunggul::findOrFail($pengedarunggul_id);

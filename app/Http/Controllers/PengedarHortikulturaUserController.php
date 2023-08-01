@@ -36,7 +36,10 @@ class PengedarHortikulturaUserController extends Controller
      */
     public function store(Request $request)
     {
-        $pengedarhortikultura = pengedarhortikultura::create($request->all());
+        $i = array($request->sarana);
+        $pengedarhortikultura = pengedarhortikultura::create($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         // comment this code if foto not used
         $pengedarhortikultura_id = $pengedarhortikultura->id;
@@ -80,7 +83,10 @@ class PengedarHortikulturaUserController extends Controller
      */
     public function update(Request $request, PengedarHortikultura $pengedarhortikultura)
     {
-        $pengedarhortikultura->update($request->all());
+        $i = array($request->sarana);
+        $pengedarhortikultura->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $pengedarhortikultura_id = $pengedarhortikultura->id;
         $setuuid = pengedarhortikultura::findOrFail($pengedarhortikultura_id);

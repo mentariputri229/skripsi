@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailupdate;
+use Illuminate\Support\Facades\Mail;
 use Auth;
 use App\Models\Produsen;
 use App\Models\Usaha;
@@ -62,7 +64,10 @@ class PengedarUnggulController extends Controller
      */
     public function update(Request $request, PengedarUnggul $pengedarunggul)
     {
-        $pengedarunggul->update($request->all());
+        $i = array($request->sarana);
+        $pengedarunggul->update($request->all() +[
+            'sarana' => json_encode($i),
+        ]);
 
         $pengedarunggul_id = $pengedarunggul->id;
         $setuuid = pengedarunggul::findOrFail($pengedarunggul_id);
@@ -78,6 +83,13 @@ class PengedarUnggulController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
+
+        if($pengedarunggul->wasChanged('status'))
+        {
+            $data = $pengedarunggul;
+
+            Mail::to($pengedarunggul->user->email)->send(new Mailupdate($data));
+        }
         return redirect()->route('admin.pengedarunggul.index')->withSuccess('Data Berhasil Diubah');
     }
 

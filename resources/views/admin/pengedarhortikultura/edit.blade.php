@@ -75,11 +75,29 @@ Rekomendasi Pengedar Hortikultura
                                             <input type="text" class="form-control" id="jenis_benih" name="jenis_benih" value="{{$pengedarhortikultura->jenis_benih}}"
                                                 placeholder="Masukan Jenis Benih">
                                             </div>
+                                            @if($pengedarhortikultura->status == "Survei Lapangan")
                                             <div class="form-group">
                                                 <label for="nomor_surat">Nomor Surat</label>
                                                 <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$pengedarhortikultura->nomor_surat}}"
                                                     placeholder="Masukan Nomor Surat">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                                <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$pengedarhortikultura->tanggal_akhir}}"
+                                                    placeholder="Masukan Nomor Surat">
+                                            </div>
+                                            @elseif($pengedarhortikultura->status == "Selesai")
+                                            <div class="form-group">
+                                                <label for="nomor_surat">Nomor Surat</label>
+                                                <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{$pengedarhortikultura->nomor_surat}}"
+                                                    placeholder="Masukan Nomor Surat">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                                <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$pengedarhortikultura->tanggal_akhir}}"
+                                                    placeholder="Masukan Nomor Surat">
+                                            </div>
+                                            @endif
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -96,6 +114,11 @@ Rekomendasi Pengedar Hortikultura
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label for="tanggal_diterima">Tanggal Diterima</label>
+                                            <input type="date" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="{{$pengedarhortikultura->tanggal_diterima}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="produksi">Jumlah produksi (Ton/Tahun)</label>
                                             <input type="number" class="form-control" id="produksi" name="produksi" value="{{$pengedarhortikultura->produksi}}"
                                                 placeholder="Masukan Jumlah Produksi">
@@ -104,6 +127,19 @@ Rekomendasi Pengedar Hortikultura
                                             <label for="persyaratan">File Persyaratan Dalam Bentuk PDF</label>
                                             <input type="file" class="form-control" id="persyaratan" name="persyaratan"
                                                 placeholder="Masukan Persyaratan">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sarana/Prasarana</label>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Jumlah Tenaga Kerja Lebih Dari 2 Orang" {{ in_array('Jumlah Tenaga Kerja Lebih Dari 2 Orang', $pengedarhortikultura->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Jumlah Tenaga Kerja Lebih Dari 2 Orang</label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih" {{ in_array('Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih', $pengedarhortikultura->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

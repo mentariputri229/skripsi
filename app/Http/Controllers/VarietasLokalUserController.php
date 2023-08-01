@@ -37,7 +37,10 @@ class VarietasLokalUserController extends Controller
      */
     public function store(Request $request)
     {
-        $varietaslokal = varietaslokal::create($request->all());
+        $i = array($request->sarana);
+        $varietaslokal = varietaslokal::create($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         // comment this code if foto not used
         $varietaslokal_id = $varietaslokal->id;
@@ -81,7 +84,10 @@ class VarietasLokalUserController extends Controller
      */
     public function update(Request $request, VarietasLokal $varietaslokal)
     {
-        $varietaslokal->update($request->all());
+        $i = array($request->sarana);
+        $varietaslokal->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $varietaslokal_id = $varietaslokal->id;
         $setuuid = varietaslokal::findOrFail($varietaslokal_id);

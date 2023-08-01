@@ -37,7 +37,10 @@ class HortikulturaUserController extends Controller
      */
     public function store(Request $request)
     {
-        $hortikultura = hortikultura::create($request->all());
+        $i = array($request->sarana);
+        $hortikultura = hortikultura::create($request->all() +[
+            'sarana' => json_encode($i),
+        ]);
 
         // comment this code if foto not used
         $hortikultura_id = $hortikultura->id;
@@ -81,7 +84,10 @@ class HortikulturaUserController extends Controller
      */
     public function update(Request $request, Hortikultura $hortikultura)
     {
-        $hortikultura->update($request->all());
+        $i = array($request->sarana);
+        $hortikultura->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $hortikultura_id = $hortikultura->id;
         $setuuid = hortikultura::findOrFail($hortikultura_id);

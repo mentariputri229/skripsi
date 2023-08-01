@@ -24,7 +24,9 @@ return new class extends Migration
             $table->string('benih_usaha', 30);
             $table->string('kelas_benih', 30)->nullable();
             $table->string('persyaratan');
-            $table->date('tanggal')->nullable();
+            $table->date('tanggal_diterima')->nullable();
+            $table->date('tanggal_akhir')->nullable();
+            $table->string('sarana')->nullable();
             $table->string('status')->default('Menunggu Konfirmasi');
             $table->timestamps();
         });

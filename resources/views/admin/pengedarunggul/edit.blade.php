@@ -86,11 +86,21 @@ Rekomendasi Pengedar Benih Unggul
                                                 <input type="text" class="form-control" id="kelas_benih" name="kelas_benih" value="{{$pengedarunggul->kelas_benih}}"
                                                     placeholder="Masukan Kelas Benih">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                                <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$pengedarunggul->tanggal_akhir}}"
+                                                    placeholder="Masukan Nomor Surat">
+                                            </div>
                                             @elseif($pengedarunggul->status == "Selesai")
                                             <div class="form-group">
                                                 <label for="kelas_benih">Kelas Benih</label>
                                                 <input type="text" class="form-control" id="kelas_benih" name="kelas_benih" value="{{$pengedarunggul->kelas_benih}}"
                                                     placeholder="Masukan Kelas Benih">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tanggal_akhir">Tanggal Akhir Masa Berlaku</label>
+                                                <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" value="{{$pengedarunggul->tanggal_akhir}}"
+                                                    placeholder="Masukan Nomor Surat">
                                             </div>
                                             @endif
                                     </div>
@@ -109,6 +119,11 @@ Rekomendasi Pengedar Benih Unggul
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label for="tanggal_diterima">Tanggal Diterima</label>
+                                            <input type="date" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="{{$pengedarunggul->tanggal_diterima}}"
+                                                placeholder="Masukan Nomor Surat">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="produksi">Jumlah produksi (Ton/Tahun)</label>
                                             <input type="number" class="form-control" id="produksi" name="produksi" value="{{$pengedarunggul->produksi}}"
                                                 placeholder="Masukan Asal Benih">
@@ -117,6 +132,19 @@ Rekomendasi Pengedar Benih Unggul
                                             <label for="persyaratan">File Persyaratan Dalam Bentuk PDF</label>
                                             <input type="file" class="form-control" id="persyaratan" name="persyaratan"
                                                 placeholder="Masukan Persyaratan">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sarana/Prasarana</label>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Jumlah Tenaga Kerja Lebih Dari 2 Orang" {{ in_array('Jumlah Tenaga Kerja Lebih Dari 2 Orang', $pengedarunggul->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Jumlah Tenaga Kerja Lebih Dari 2 Orang</label>
+                                            </div>
+                                            <div class="form-check">
+                                            <input class="form-check-input" name="sarana[]" value="Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih" {{ in_array('Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih', $pengedarunggul->sarana) ? 'checked' : '' }} type="checkbox">
+                                            <label class="form-check-label">Adanya Alat Transportasi, Gudang/Tempat Penyimpanan Benih</label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

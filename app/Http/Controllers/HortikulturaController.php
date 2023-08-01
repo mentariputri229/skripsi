@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Mailupdate;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Auth;
 use App\Models\Hortikultura;
@@ -50,7 +52,6 @@ class HortikulturaController extends Controller
      */
     public function edit(Hortikultura $hortikultura)
     {
-        $hortikultura_id = $hortikultura->user_id;
 
         $data = Produsen::where('user_id', '=', $hortikultura_id)->get();
         $usaha = Usaha::where('user_id', '=', $hortikultura_id)->get();
@@ -63,7 +64,10 @@ class HortikulturaController extends Controller
      */
     public function update(Request $request, Hortikultura $hortikultura)
     {
-        $hortikultura->update($request->all());
+        $i = array($request->sarana);
+        $hortikultura->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $hortikultura_id = $hortikultura->id;
         $setuuid = hortikultura::findOrFail($hortikultura_id);
@@ -79,6 +83,13 @@ class HortikulturaController extends Controller
             $setuuid->persyaratan       = $setuuid->persyaratan;
         }
         $setuuid->update();
+        if($hortikultura->wasChanged('status'))
+        {
+            $data = $hortikultura;
+
+            Mail::to($hortikultura->user->email)->send(new Mailupdate($data));
+        }
+
         return redirect()->route('admin.hortikultura.index')->withSuccess('Data Berhasil Diubah');
     }
 

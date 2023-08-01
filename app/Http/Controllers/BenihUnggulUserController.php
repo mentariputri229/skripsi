@@ -37,7 +37,12 @@ class BenihUnggulUserController extends Controller
      */
     public function store(Request $request)
     {
-        $benihunggul = benihunggul::create($request->all());
+        // $input = $request->all();
+        // $input['sarana'] =
+        $i = array($request->sarana);
+        $benihunggul = benihunggul::create($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         // comment this code if foto not used
         $benihunggul_id = $benihunggul->id;
@@ -81,7 +86,11 @@ class BenihUnggulUserController extends Controller
      */
     public function update(Request $request, BenihUnggul $benihunggul)
     {
-        $benihunggul->update($request->all());
+        $i = array($request->sarana);
+
+        $benihunggul->update($request->all() + [
+            'sarana' => json_encode($i),
+        ]);
 
         $benihunggul_id = $benihunggul->id;
         $setuuid = benihunggul::findOrFail($benihunggul_id);
