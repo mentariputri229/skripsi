@@ -15,7 +15,7 @@ class PengedarLokalUserController extends Controller
      */
     public function index()
     {
-        $data = PengedarLokal::all();
+        $data = PengedarLokal::where('user_id', Auth::user()->id)->get();
 
         return view('pemohon.pengedarlokal.index', compact('data'));
     }

@@ -53,8 +53,8 @@ class HortikulturaController extends Controller
     public function edit(Hortikultura $hortikultura)
     {
 
-        $data = Produsen::where('user_id', '=', $hortikultura_id)->get();
-        $usaha = Usaha::where('user_id', '=', $hortikultura_id)->get();
+        $data = Produsen::where('user_id', '=', $hortikultura->user_id)->get();
+        $usaha = Usaha::where('user_id', '=', $hortikultura->user_id)->get();
 
         return view('admin.hortikultura.edit', compact('hortikultura','data','usaha'));
     }

@@ -15,7 +15,7 @@ class PengedarUnggulUserController extends Controller
      */
     public function index()
     {
-        $data = PengedarUnggul::all();
+        $data = PengedarUnggul::where('user_id', Auth::user()->id)->get();
 
         return view('pemohon.pengedarunggul.index', compact('data'));
     }

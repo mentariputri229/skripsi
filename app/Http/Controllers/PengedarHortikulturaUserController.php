@@ -15,7 +15,7 @@ class PengedarHortikulturaUserController extends Controller
      */
     public function index()
     {
-        $data = Pengedarhortikultura::all();
+        $data = Pengedarhortikultura::where('user_id', Auth::user()->id)->get();
 
         return view('pemohon.pengedarhortikultura.index', compact('data'));
     }
