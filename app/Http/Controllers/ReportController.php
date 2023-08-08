@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use URL;
 use Carbon\Carbon;
 use App\Models\Usaha;
 use App\Models\User;
@@ -154,51 +155,57 @@ class ReportController extends Controller
 
     public function sertifikatunggul($id)
     {
+        $url = URL::current();
         $data   = BenihUnggul::findOrFail($id);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        return view('report.sertifikatbenihunggul', compact('data', 'now', 'ttdName'));
+        return view('report.sertifikatbenihunggul', compact('data', 'now', 'ttdName', 'url'));
 
     }
 
     public function sertifikathortikultura($id)
     {
+        $url = URL::current();
         $data   = hortikultura::findOrFail($id);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        return view('report.sertifikathortikultura', compact('data', 'now', 'ttdName'));
+        return view('report.sertifikathortikultura', compact('data', 'now', 'ttdName', 'url'));
     }
 
     public function sertifikatlokal($id)
     {
+        $url = URL::current();
         $data   = varietaslokal::findOrFail($id);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        return view('report.sertifikatvarietaslokal', compact('data', 'now', 'ttdName'));
+        return view('report.sertifikatvarietaslokal', compact('data', 'now', 'ttdName', 'url'));
     }
 
     public function pengedarunggul($id)
     {
+        $url = URL::current();
         $data   = PengedarUnggul::findOrFail($id);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        return view('report.pengedarbenihunggul', compact('data', 'now', 'ttdName'));
+        return view('report.pengedarbenihunggul', compact('data', 'now', 'ttdName', 'url'));
 
     }
 
     public function pengedarhortikultura($id)
     {
+        $url = URL::current();
         $data   = PengedarHortikultura::findOrFail($id);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        return view('report.pengedarhortikultura', compact('data', 'now', 'ttdName'));
+        return view('report.pengedarhortikultura', compact('data', 'now', 'ttdName', 'url'));
     }
 
     public function pengedarlokal($id)
     {
+        $url = URL::current();
         $data   = PengedarLokal::findOrFail($id);
         $now = $this->now;
         $ttdName = $this->ttdName;
-        return view('report.pengedarvarietaslokal', compact('data', 'now', 'ttdName'));
+        return view('report.pengedarvarietaslokal', compact('data', 'now', 'ttdName', 'url'));
     }
 }

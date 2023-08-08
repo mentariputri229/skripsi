@@ -152,6 +152,9 @@
         <p style="text-align: justify;">Dinyatakan layak dan diberikan rekomendasi sebagai pengedar benih Hortikultura, Penetapan Rekomendasi Sebagai Pengedar Benih Tanaman Pangan Berlaku selama yang bersangkutan masih aktif mengedarkan/memperdagangkan benih Hortikultura tanaman pangan dan bersedia dilakukan peninjauan ulang minimal 1(satu) kali dalam setahun.</p>
 
             <br>
+            <div style="float: left; margin-left: 20%; margin-top: 15px;">
+                {!! QrCode::size(100)->generate($url) !!}
+            </div>
            <div class="ttd">
                 <p style="margin:0px"> Banjarbaru, {{$now}}</p>
                 <h6 style="margin:0px">Mengetahui</h6>

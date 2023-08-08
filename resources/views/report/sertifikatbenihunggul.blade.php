@@ -171,8 +171,10 @@
                 <td style="text-align: justify;">Pemeriksaan ulang atas rekomendasi sebagai produsen benih Unggul dilakukan miniman 1 (satu) kali dalam setahun</td>
             </tr>
     </table>
-
             <br>
+            <div style="float: left; margin-left: 20%; margin-top: 15px;">
+                {!! QrCode::size(100)->generate($url) !!}
+            </div>
            <div class="ttd">
                 <p style="margin:0px"> Banjarbaru, {{$now}}</p>
                 <h6 style="margin:0px">Mengetahui</h6>
